@@ -26,7 +26,7 @@ export default {
   },
   methods: {
     onChange(e) {
-       console.log(`checked = ${e}`, e);
+      console.log(`checked = ${e}`, e);
     },
   }
 }

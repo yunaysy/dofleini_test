@@ -193,7 +193,7 @@ export default {
   },
   methods: {
     submit() {
-      console.log(`checked = ${this.member}`);
+      console.log(`object = ${this.member}`);
     },
   }
 };
