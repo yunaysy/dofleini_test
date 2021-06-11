@@ -28,7 +28,7 @@
 
           <!-- RadioButton Cant Persons-->
           <a-form-item label="¿Cuántas personas trabajarán contigo, incluyéndote a ti?">
-            <radio-button :radioButtonOptions="radioButtonValues"></radio-button>
+            <radio-button :radioButtonOptions="radioButtonValues" v-model="member"></radio-button>
             <span slot="help" class="help">
               <slot-help :paragrafhs="helpMembers"></slot-help>
             </span>
@@ -46,7 +46,7 @@
 
           <!-- Button -->
           <a-space :size="15">
-            <button-custom type="primary" size="large">Guardar cambios</button-custom>
+            <button-custom type="primary" size="large" @click="submit">Guardar cambios</button-custom>
             <button-custom type="default" size="large">Descartar</button-custom>
           </a-space>
         </a-form>
@@ -123,55 +123,46 @@ const radioColors = [
   },
   {
     color: '#04B58B',
-    // color: 'rgba(4, 181, 139, 0.5)',
     shadowColor: '#81dac5',
     value: 2
   },
   {
     color: '#3E9C4B',
-    // color:'rgba(62, 156, 75, 0.5)',
     shadowColor: '#9ecda5',
     value: 3
   },
   {
     color: '#B6BC00',
-    // color: 'rgba(182, 188, 0, 0.5)',
     shadowColor: '#dadd7f',
     value: 4
   },
   {
     color: '#E59100',
-    // color: 'rgba(229, 145, 0, 0.5)',
     shadowColor: '#f2c87f',
     value: 5
   },
   {
     color: '#E55C00',
-    // color: 'rgba(229, 92, 0, 0.5)',
     shadowColor: '#f2ad7f',
     value: 6
   },
   {
     color: '#EE1F50',
-    // color: 'rgba(238, 31, 80, 0.5)',
     shadowColor: '#f68fa7',
     value: 7
   },
   {
     color: '#D6198A',
-    // color: 'rgba(214, 25, 138, 0.5)',
     shadowColor: '#ea8cc4',
     value: 8
   },
   {
     color: '#B321F1',
-    // color: 'rgba(179, 33, 241, 0.5)',
     shadowColor: '#d990f8',
     value: 9
   },
   {
     color: '#48B5FE',
-    // color: 'rgba(72, 181, 254, 0.5)',
     shadowColor: '#a3daff',
     value: 10
   },
@@ -190,6 +181,7 @@ export default {
   },
   data() {
     return {
+      member: '',
       loading: false,
       imageUrl: '',
       radioButtonValues,
@@ -199,6 +191,11 @@ export default {
       helpMembers
     };
   },
+  methods: {
+    submit() {
+      console.log(`checked = ${this.member}`);
+    },
+  }
 };
 </script>
 

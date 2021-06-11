@@ -1,6 +1,6 @@
 <template>
   <div class="button_custom">
-    <a-button :type="type" :size="size">
+    <a-button @click="$emit('click', $event)" :type="type" :size="size">
       <slot></slot>
     </a-button>
   </div>

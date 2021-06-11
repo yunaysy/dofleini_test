@@ -1,11 +1,10 @@
 <template>
   <div class="radio_button_custom">
-    <a-radio-group @change="onChange" size="large">
+    <a-radio-group :value="value" @input="$emit('change', $event)" size="large">
       <a-space :size="10">
         <a-radio-button
           v-for="(itemRadio, key) in radioButtonOptions"
           :key="key"
-          :v-model="value"
           :value="itemRadio.value"
         >
           {{ itemRadio.text }}
@@ -17,17 +16,17 @@
 
 <script>
 export default {
-  props: {
-    radioButtonOptions: Array
+  model: {
+    prop: 'value',
+    event: 'change'
   },
-  data() {
-    return {
-      value: ''
-    }
+  props: {
+    value: String,
+    radioButtonOptions: Array,
   },
   methods: {
     onChange(e) {
-      console.log(`checked = ${e.target.value}`);
+       console.log(`checked = ${e}`, e);
     },
   }
 }
