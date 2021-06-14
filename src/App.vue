@@ -15,7 +15,7 @@
 
           <!-- First input Name -->
           <a-form-item label="Nombre del espacio">
-            <input-text placeholder="Ep: Mi espacio de trabajo" />
+            <input-text placeholder="Ep: Mi espacio de trabajo" v-model="name" />
           </a-form-item>
 
           <!-- Second input URL-->
@@ -23,7 +23,7 @@
             <span slot="help">
               <slot-help :paragrafhs="helpUrl"></slot-help>
             </span>
-            <input-text placeholder="Ep: mi.dominio" />
+            <input-text placeholder="Ep: mi.dominio" v-model="url" />
           </a-form-item>
 
           <!-- RadioButton Cant Persons-->
@@ -181,6 +181,8 @@ export default {
   },
   data() {
     return {
+      name: '',
+      url: '',
       member: '',
       loading: false,
       imageUrl: '',
@@ -192,9 +194,15 @@ export default {
     };
   },
   methods: {
-    submit() {
-      console.log(`object = ${this.member}`);
-    },
+    // submit() {
+    //   console.log(`object = ${this.member}`);
+    // },
+    submit:function(){
+			var params=new Object();
+			params.username=this.name;
+			params.url=this.url;
+			alert("formdata："+JSON.stringify(params));
+		}
   }
 };
 </script>
