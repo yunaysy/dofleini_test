@@ -1,7 +1,13 @@
 <template>
   <div class="radio_button_custom">
-    <a-radio-group :value="value" @input="$emit('change', $event)" size="large">
-      <a-space :size="10">
+    <a-radio-group
+      :value="value"
+      @input="$emit('change', $event)"
+      size="large"
+    >
+      <a-space
+        :size="10"
+      >
         <a-radio-button
           v-for="(itemRadio, key) in radioButtonOptions"
           :key="key"
@@ -22,7 +28,7 @@ export default {
   },
   props: {
     radioButtonOptions: Array,
-    value: String,
+    value: Number,
   }
 }
 </script>

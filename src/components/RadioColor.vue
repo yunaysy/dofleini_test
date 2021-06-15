@@ -1,7 +1,14 @@
 <template>
   <div class="radio_color_custom">
-    <a-radio-group v-model="value" @change="onChange">
-      <a-radio v-for="(item, key) in colors" :key="key" :value="item.value">
+    <a-radio-group
+      :value="value"
+      @input="$emit('change', $event)"
+    >
+      <a-radio
+        v-for="(item, key) in colors"
+        :key="key"
+        :value="item.value"
+      >
         <span
           v-if="value != item.value"
           class="circle"
@@ -24,19 +31,14 @@
 
 <script>
 export default {
+  model: {
+    prop: 'value',
+    event: 'change'
+  },
   props: {
-    colors: Array
+    colors: Array,
+    value: Number,
   },
-  data() {
-    return {
-      value: '',
-    }
-  },
-  methods: {
-    onChange(e) {
-      console.log(`checked = ${e.target.value}`);
-    },
-  }
 }
 </script>
 

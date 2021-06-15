@@ -34,14 +34,14 @@
             </span>
           </a-form-item>
 
-          <!-- Color Theme -->          
+          <!-- Color Theme -->
           <a-form-item label="Color del tema">
-            <radio-color :colors="radioColors"></radio-color>
+            <radio-color :colors="radioColors" v-model="color"></radio-color>
           </a-form-item>
 
           <!-- Radio Privacidad del espacio -->
           <a-form-item label="Privacidad del espacio">
-            <radio-group :radioGroupOptions="radioGroupOptions"></radio-group>
+            <radio-group :radioGroupOptions="radioGroupOptions" v-model="privacy"></radio-group>
           </a-form-item>
 
           <!-- Button -->
@@ -80,27 +80,27 @@ const helpMembers = [
 const radioButtonValues = [
   {
     text: 'Solo yo',
-    value: 'a'
+    value: 1
   },
   {
     text: '2 - 10',
-    value: 'b'
+    value: 2
   },
   {
     text: '11 - 25',
-    value: 'c'
+    value: 3
   },
   {
     text: '26 - 50',
-    value: 'd'
+    value: 4
   },
   {
     text: '51 - 100',
-    value: 'e'
+    value: 5
   },
   {
     text: '500 +',
-    value: 'f'
+    value: 6
   }
 ]
 const radioGroupOptions = [
@@ -183,9 +183,11 @@ export default {
     return {
       name: '',
       url: '',
-      member: '',
-      loading: false,
-      imageUrl: '',
+      member: null,
+      color: null,
+      privacy: null,
+      // loading: false,
+      // imageUrl: '',
       radioButtonValues,
       radioGroupOptions,
       radioColors,
@@ -194,12 +196,14 @@ export default {
     };
   },
   methods: {
-    submit:function(){
-			var params=new Object();
-			params.nameSpace=this.name;
-			params.url=this.url;
-			params.cantMember=this.member;
-			alert("formdata："+JSON.stringify(params));
+    submit(){
+			var params = new Object();
+			params.nameSpace = this.name;
+			params.url = this.url;
+			params.cantMember = this.member;
+			params.themeColor = this.color;
+			params.privacy = this.privacy;
+      console.log(params);
 		}
   }
 };
