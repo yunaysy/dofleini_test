@@ -117,54 +117,44 @@ const radioGroupOptions = [
 ]
 const radioColors = [
   {
-    color: '#39B0FF',
     shadowColor: '#a3daff',
-    value: 1
+    value: '#39B0FF'
   },
   {
-    color: '#04B58B',
     shadowColor: '#81dac5',
-    value: 2
+    value: '#04B58B'
   },
   {
-    color: '#3E9C4B',
     shadowColor: '#9ecda5',
-    value: 3
+    value: '#3E9C4B'
   },
   {
-    color: '#B6BC00',
     shadowColor: '#dadd7f',
-    value: 4
+    value: '#B6BC00'
   },
   {
-    color: '#E59100',
     shadowColor: '#f2c87f',
-    value: 5
+    value: '#E59100'
   },
   {
-    color: '#E55C00',
     shadowColor: '#f2ad7f',
-    value: 6
+    value: '#E55C00'
   },
   {
-    color: '#EE1F50',
     shadowColor: '#f68fa7',
-    value: 7
+    value: '#EE1F50'
   },
   {
-    color: '#D6198A',
     shadowColor: '#ea8cc4',
-    value: 8
+    value: '#D6198A'
   },
   {
-    color: '#B321F1',
     shadowColor: '#d990f8',
-    value: 9
+    value: '#B321F1'
   },
   {
-    color: '#48B5FE',
     shadowColor: '#a3daff',
-    value: 10
+    value: '#48B5FE'
   },
 ]
 

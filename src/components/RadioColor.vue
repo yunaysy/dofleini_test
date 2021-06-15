@@ -12,16 +12,16 @@
         <span
           v-if="value != item.value"
           class="circle"
-          :style="{ backgroundColor: item.color }"
+          :style="{ backgroundColor: item.value }"
         ></span>
         <span
           v-else
           class="circle_checked"
-          :style="{ borderColor: item.color, boxShadow: '0 0 0 4px' + item.shadowColor}"
+          :style="{ borderColor: item.value, boxShadow: '0 0 0 4px' + item.shadowColor}"
         >
           <span
             class="circle_checked_small"
-            :style="{ backgroundColor: item.color }"
+            :style="{ backgroundColor: item.value }"
           ></span>
         </span>
       </a-radio>
@@ -37,7 +37,7 @@ export default {
   },
   props: {
     colors: Array,
-    value: Number,
+    value: String,
   },
 }
 </script>
