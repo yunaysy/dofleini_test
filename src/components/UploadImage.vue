@@ -9,7 +9,11 @@
       :before-upload="beforeUpload"
       @change="handleChange"
     >
-      <img v-if="imageUrl" :src="imageUrl" alt="avatar" />
+      <img
+        v-if="imageUrl"
+        :src="imageUrl"
+        alt="avatar"
+      />
       <div v-else>
         <a-icon :type="loading ? 'loading' : 'upload'" />
         <div class="ant-upload-text">

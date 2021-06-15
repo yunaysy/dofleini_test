@@ -15,7 +15,7 @@
 
           <!-- First input Name -->
           <a-form-item label="Nombre del espacio">
-            <input-text placeholder="Ep: Mi espacio de trabajo" />
+            <input-text placeholder="Ep: Mi espacio de trabajo" v-model="name" />
           </a-form-item>
 
           <!-- Second input URL-->
@@ -23,7 +23,7 @@
             <span slot="help">
               <slot-help :paragrafhs="helpUrl"></slot-help>
             </span>
-            <input-text placeholder="Ep: mi.dominio" />
+            <input-text placeholder="Ep: mi.dominio" v-model="url" />
           </a-form-item>
 
           <!-- RadioButton Cant Persons-->
@@ -34,14 +34,14 @@
             </span>
           </a-form-item>
 
-          <!-- Color Theme -->          
+          <!-- Color Theme -->
           <a-form-item label="Color del tema">
-            <radio-color :colors="radioColors"></radio-color>
+            <radio-color :colors="radioColors" v-model="color"></radio-color>
           </a-form-item>
 
           <!-- Radio Privacidad del espacio -->
           <a-form-item label="Privacidad del espacio">
-            <radio-group :radioGroupOptions="radioGroupOptions"></radio-group>
+            <radio-group :radioGroupOptions="radioGroupOptions" v-model="privacy"></radio-group>
           </a-form-item>
 
           <!-- Button -->
@@ -80,27 +80,27 @@ const helpMembers = [
 const radioButtonValues = [
   {
     text: 'Solo yo',
-    value: 'a'
+    value: 1
   },
   {
     text: '2 - 10',
-    value: 'b'
+    value: 2
   },
   {
     text: '11 - 25',
-    value: 'c'
+    value: 3
   },
   {
     text: '26 - 50',
-    value: 'd'
+    value: 4
   },
   {
     text: '51 - 100',
-    value: 'e'
+    value: 5
   },
   {
     text: '500 +',
-    value: 'f'
+    value: 6
   }
 ]
 const radioGroupOptions = [
@@ -117,54 +117,44 @@ const radioGroupOptions = [
 ]
 const radioColors = [
   {
-    color: '#39B0FF',
     shadowColor: '#a3daff',
-    value: 1
+    value: '#39B0FF'
   },
   {
-    color: '#04B58B',
     shadowColor: '#81dac5',
-    value: 2
+    value: '#04B58B'
   },
   {
-    color: '#3E9C4B',
     shadowColor: '#9ecda5',
-    value: 3
+    value: '#3E9C4B'
   },
   {
-    color: '#B6BC00',
     shadowColor: '#dadd7f',
-    value: 4
+    value: '#B6BC00'
   },
   {
-    color: '#E59100',
     shadowColor: '#f2c87f',
-    value: 5
+    value: '#E59100'
   },
   {
-    color: '#E55C00',
     shadowColor: '#f2ad7f',
-    value: 6
+    value: '#E55C00'
   },
   {
-    color: '#EE1F50',
     shadowColor: '#f68fa7',
-    value: 7
+    value: '#EE1F50'
   },
   {
-    color: '#D6198A',
     shadowColor: '#ea8cc4',
-    value: 8
+    value: '#D6198A'
   },
   {
-    color: '#B321F1',
     shadowColor: '#d990f8',
-    value: 9
+    value: '#B321F1'
   },
   {
-    color: '#48B5FE',
     shadowColor: '#a3daff',
-    value: 10
+    value: '#48B5FE'
   },
 ]
 
@@ -181,9 +171,13 @@ export default {
   },
   data() {
     return {
-      member: '',
-      loading: false,
-      imageUrl: '',
+      name: '',
+      url: '',
+      member: null,
+      color: null,
+      privacy: null,
+      // loading: false,
+      // imageUrl: '',
       radioButtonValues,
       radioGroupOptions,
       radioColors,
@@ -192,9 +186,15 @@ export default {
     };
   },
   methods: {
-    submit() {
-      console.log(`object = ${this.member}`);
-    },
+    submit(){
+			var params = new Object();
+			params.nameSpace = this.name;
+			params.url = this.url;
+			params.cantMember = this.member;
+			params.themeColor = this.color;
+			params.privacy = this.privacy;
+      console.log(params);
+		}
   }
 };
 </script>

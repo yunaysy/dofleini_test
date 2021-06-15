@@ -1,8 +1,17 @@
 <template>
   <div class="radio_group_custom">
-    <a-radio-group v-model="value" @change="onChange">
-      <a-row :gutter="13">
-        <a-col :span="12" v-for="(item, key) in radioGroupOptions" :key="key">
+    <a-radio-group
+      :value="value"
+      @input="$emit('change', $event)"
+    >
+      <a-row
+        :gutter="13"
+      >
+        <a-col
+          :span="12"
+          v-for="(item, key) in radioGroupOptions"
+          :key="key"
+        >
           <radio-item
             :value="item.value"
             :checked="value == item.value"
@@ -18,22 +27,17 @@
 <script>
 import RadioItem from '../components/RadioItem'
 export default {
+  model: {
+    prop: 'value',
+    event: 'change'
+  },
   props: {
-    radioGroupOptions: Array
+    radioGroupOptions: Array,
+    value: Number,
   },
   components: {
     RadioItem
   },
-  data() {
-    return {
-      value: '',
-    }
-  },
-  methods: {
-    onChange(e) {
-      console.log(`checked = ${e.target.value}`);
-    },
-  }
 }
 </script>
 

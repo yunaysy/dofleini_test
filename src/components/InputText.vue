@@ -1,13 +1,19 @@
 <template>
   <div class="input_text_custom">
-    <a-input :placeholder="placeholder" size="large" />
+    <a-input
+      :placeholder="placeholder"
+      size="large"
+      :value="value"
+      @input="$emit('input', $event.target.value)"
+    />
   </div>
 </template>
 
 <script>
 export default {
   props: {
-    placeholder: String
+    placeholder: String,
+    value: String,
   }
 }
 </script>
