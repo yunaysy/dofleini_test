@@ -194,13 +194,11 @@ export default {
     };
   },
   methods: {
-    // submit() {
-    //   console.log(`object = ${this.member}`);
-    // },
     submit:function(){
 			var params=new Object();
-			params.username=this.name;
+			params.nameSpace=this.name;
 			params.url=this.url;
+			params.cantMember=this.member;
 			alert("formdata："+JSON.stringify(params));
 		}
   }

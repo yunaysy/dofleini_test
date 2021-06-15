@@ -21,13 +21,8 @@ export default {
     event: 'change'
   },
   props: {
-    value: String,
     radioButtonOptions: Array,
-  },
-  methods: {
-    onChange(e) {
-      console.log(`checked = ${e}`, e);
-    },
+    value: String,
   }
 }
 </script>
